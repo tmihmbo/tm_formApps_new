@@ -1,10 +1,3 @@
-<<<<<<< HEAD
-// Data Arrays
-let namesArr = ['Ben', 'Joel', 'Judy', 'Anne'];
-let scoresArr = [88, 98, 77, 88];
-
-// Logic Functions
-=======
 "use strict";
 
 // 1. Data Initialization
@@ -12,7 +5,6 @@ let namesArr = ['Ben', 'Joel', 'Judy', 'Anne'];
 let scoresArr = [88, 98, 77, 88];
 
 // 2. Calculations
->>>>>>> 8946aba (test score js)
 const getAvgScore = () => {
     const sum = scoresArr.reduce((a, b) => a + b, 0);
     return sum / scoresArr.length;
@@ -30,29 +22,6 @@ const getHighScore = () => {
     return `${name} with score of ${max}`;
 };
 
-<<<<<<< HEAD
-// UI Initialization Functions
-const initializeResults = () => {
-    const high = getHighScore();
-    const avg = getAvgScore().toFixed(1);
-    
-    document.getElementById('highScore').innerHTML = high;
-    document.getElementById('avgScore').innerHTML = avg;
-};
-
-const insertNewTableElement = (newName, newScore) => {
-    const table = document.getElementById("scores_table");
-    const row = table.insertRow(-1); 
-    const cell1 = row.insertCell(0);
-    const cell2 = row.insertCell(1);
-    cell1.innerHTML = newName;
-    cell2.innerHTML = newScore;
-};
-
-const initializeScoresTable = () => {
-    const table = document.getElementById("scores_table");
-    
-=======
 // 3. Rendering / UI Updates
 const initializeResults = () => {
     const high = getHighScore();
@@ -75,7 +44,6 @@ const insertNewTableElement = (newName, newScore) => {
 const initializeScoresTable = () => {
     const table = document.getElementById("scores_table");
 
->>>>>>> 8946aba (test score js)
     while (table.rows.length > 1) {
         table.deleteRow(1);
     }
@@ -85,23 +53,7 @@ const initializeScoresTable = () => {
     });
 };
 
-<<<<<<< HEAD
-// Event Handler Functions
-const displayResults = () => {
-    const results = document.getElementById('avgs');
-    results.style.display = (results.style.display === 'none') ? 'block' : 'none';
-    document.getElementById('error_message').innerHTML = '';
-};
-
-const displayScores = () => {
-    const scores = document.getElementById('scores');
-    scores.style.display = (scores.style.display === 'none') ? 'block' : 'none';
-    document.getElementById('error_message').innerHTML = '';
-};
-
-=======
-// 4. Controller
->>>>>>> 8946aba (test score js)
+// 4. User Interaction
 const addScore = () => {
     const scoreInput = document.getElementById('score');
     const nameInput = document.getElementById('name');
@@ -113,10 +65,6 @@ const addScore = () => {
     }
 
     errorMsg.innerHTML = '';
-<<<<<<< HEAD
-    
-=======
->>>>>>> 8946aba (test score js)
     scoresArr.push(parseInt(scoreInput.value));
     namesArr.push(nameInput.value);
 
@@ -126,16 +74,6 @@ const addScore = () => {
     scoreInput.value = '';
     nameInput.value = '';
     nameInput.focus();
-<<<<<<< HEAD
-
-    document.getElementById('scores').style.display = 'block';
-    document.getElementById('results').style.display = 'block';
-};
-
-// Main Execution
-window.addEventListener('load', () => {
-    // Event Listeners
-=======
 };
 
 const displayResults = () => {
@@ -151,30 +89,14 @@ const displayScores = () => {
 
 // 5. Event Listeners
 window.addEventListener('load', () => {
->>>>>>> 8946aba (test score js)
     document.getElementById('display_results').addEventListener('click', displayResults);
     document.getElementById('display_scores').addEventListener('click', displayScores);
     document.getElementById('add').addEventListener('click', addScore);
 
-<<<<<<< HEAD
-    // Initial setup
-=======
->>>>>>> 8946aba (test score js)
     document.getElementById('name').focus();
     initializeResults();
     initializeScoresTable();
 
-<<<<<<< HEAD
-    // Handle "Enter" key
-    document.addEventListener('keypress', (e) => {
-        if (e.key === "Enter" && (e.target.tagName === "INPUT" || e.target.tagName === "SELECT")) {
-            e.preventDefault();
-
-            const focusableSelector = 'a, button, input, select, [tabindex]:not([tabindex="-1"])';
-            const focusables = Array.from(document.querySelectorAll(focusableSelector));
-            const index = focusables.indexOf(e.target);
-
-=======
     document.addEventListener('keypress', (e) => {
         if (e.key === "Enter" && e.target.tagName === "INPUT") {
             e.preventDefault();
@@ -182,15 +104,10 @@ window.addEventListener('load', () => {
                 'a, button, input, select, [tabindex]:not([tabindex="-1"])'
             ));
             const index = focusables.indexOf(e.target);
->>>>>>> 8946aba (test score js)
             if (index > -1) {
                 const nextElement = focusables[index + 1] || focusables[0];
                 nextElement.focus();
             }
         }
     });
-<<<<<<< HEAD
 });
-=======
-});
->>>>>>> 8946aba (test score js)
