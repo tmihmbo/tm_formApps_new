@@ -26,7 +26,6 @@ const getHighScore = () => {
 const initializeResults = () => {
     const high = getHighScore();
     const avg = getAvgScore().toFixed(1);
-
     document.getElementById('highScore').innerHTML = high;
     document.getElementById('avgScore').innerHTML = avg;
 };
@@ -36,18 +35,15 @@ const insertNewTableElement = (newName, newScore) => {
     const row = table.insertRow(-1);
     const cell1 = row.insertCell(0);
     const cell2 = row.insertCell(1);
-
     cell1.innerHTML = newName;
     cell2.innerHTML = newScore;
 };
 
 const initializeScoresTable = () => {
     const table = document.getElementById("scores_table");
-
     while (table.rows.length > 1) {
         table.deleteRow(1);
     }
-
     scoresArr.forEach((score, i) => {
         insertNewTableElement(namesArr[i], score);
     });
@@ -64,8 +60,16 @@ const addScore = () => {
         return;
     }
 
+    const score = parseInt(scoreInput.value);
+
+    if (isNaN(score) || score < 0 || score > 100) {
+        errorMsg.innerHTML = 'Score must be a number between 0 and 100';
+        scoreInput.focus();
+        return;
+    }
+
     errorMsg.innerHTML = '';
-    scoresArr.push(parseInt(scoreInput.value));
+    scoresArr.push(score);
     namesArr.push(nameInput.value);
 
     initializeScoresTable();
